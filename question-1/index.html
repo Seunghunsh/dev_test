@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My React App</title>
+
+  <script src="https://unpkg.com/babel-transform-in-browser@6.4.6/dist/btib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.js"></script>
+  <style>
+    .container
+    .modal {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .modal {
+      margin: 60px 60px 120px;
+      background-color: #fff;
+      padding: 60px;
+      border: 1px solid #e1e1e1;
+    }
+
+    .error {
+      color: #a94442;
+      background-color: #f2dede;
+      border:1px solid #ebccd1;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/es2015">
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+
+      state = {
+        loading: false,
+        modal: false
+      };
+
+      onEmailChange(val) {
+        if (isValid(val)) {
+          this.setState({
+            email: val
+          })
+        }
+      }
+
+      onForgotPassword() {
+        this.setState({ modal: 'true' })
+      }
+
+      onPasswordChange(val) {
+        if (isValid(val)) {
+          this.setState({
+            password: val
+          })
+        }
+      }
+
+      onSubmitForm() {
+        this.setState({
+          loading: true
+        })
+      }
+
+      render() {
+        return (
+          <div className="container">
+            {
+              this.state.loading
+                ? <div>Loading...</div>
+                : <div>
+                    <h2>ObjectiveIQ Login Screen</h2>
+                      {
+                        this.state.modal = true
+                        ? <div className="modal">
+                            <h2>We're sorry, this feature does not exist!!</h2>
+                            <button>Close</button>
+                          </div>
+                        : <div></div>
+                      }
+                    <form>
+                      <label>
+                        <span>Email</span>
+                        <input />
+                      </label>
+                      <label>
+                        <span>Password</span>
+                        <input />
+                      </label>
+                      {
+                        this.state.error = true
+                        ? <div className="error">There was an error!!</div>
+                        : <div></div>
+                      }
+                      <button>Submit</button>
+                      <button>Forgot Password</button>
+                    </form>
+                </div>
+            }
+
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App />, document.getElementById('app'))
+  </script>
+
+</body>
+</html>
+

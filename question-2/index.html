@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://unpkg.com/expect/umd/expect.min.js"></script>
+  <style>
+    .passing {
+      font-weight: bold;
+      color: green;
+    }
+
+    .passing:after {
+      content: '  🚀🚀🚀'
+    }
+
+    .failing {
+      font-weight: bold;
+      color: red;
+    }
+
+    .failing:after {
+      content: ' 😭😭😭'
+    }
+  </style>
+</head>
+<body>
+  <div class="tests">
+    <h2>mapObject tests</h2>
+    <p>Test 1: <span id="test1" class="failing">Failing</span></p>
+    <p>Test 2: <span id="test2" class="failing">Failing</span></p>
+    <p>Test 3: <span id="test3" class="failing">Failing</span></p>
+    <hr />
+    <h2>multiplyFactory tests</h2>
+    <p>Test 4: <span id="test4" class="failing">Failing</span></p>
+    <p>Test 5: <span id="test5" class="failing">Failing</span></p>
+    <p>Test 6: <span id="test6" class="failing">Failing</span></p>
+    <p>Test 7: <span id="test7" class="failing">Failing</span></p>
+  </span>
+
+  <script>
+    var expect = window.expect;
+
+
+    /**
+     * There are 2 functions to implement here, on lines 35 and 67
+     */
+
+    // Test set 1
+    function mapObject(obj) {
+      /**
+       * Make changes inside this function only. Do not change the signature
+       */
+    }
+
+    var testObject1 = {
+      a: 1,
+      foo: 'bar'
+    };
+
+    var testArray1 = ['a', 1, 'foo', 'bar'];
+
+    expect(
+      mapObject(testObject1)
+    ).toEqual({
+      a: { value: 1 },
+      foo: { value: 'bar' }
+    });
+
+    document.getElementById('test1').innerText = 'Passing!'
+    document.getElementById('test1').classList.remove('failing')
+    document.getElementById('test1').classList.add('passing')
+
+    expect(
+      testObject1
+    ).toEqual({
+      a: 1,
+      foo: 'bar'
+    });
+
+    document.getElementById('test2').innerText = 'Passing!'
+    document.getElementById('test2').classList.remove('failing')
+    document.getElementById('test2').classList.add('passing')
+
+    expect(mapObject(testArray1))
+      .toEqual(testArray1);
+
+    document.getElementById('test3').innerText = 'Passing!'
+    document.getElementById('test3').classList.remove('failing')
+    document.getElementById('test3').classList.add('passing')
+
+    // Test set 2
+    function multiplyFactory(num) {
+      /**
+       * Make changes inside this function only. Do not change the signature
+       */
+    }
+
+    expect(
+      multiplyFactory(2)(6)
+    ).toEqual(12);
+
+    document.getElementById('test4').innerText = 'Passing!'
+    document.getElementById('test4').classList.remove('failing')
+    document.getElementById('test4').classList.add('passing')
+
+    expect(
+      multiplyFactory(18)(6)
+    ).toEqual(108);
+
+    document.getElementById('test5').innerText = 'Passing!'
+    document.getElementById('test5').classList.remove('failing')
+    document.getElementById('test5').classList.add('passing')
+
+    expect(
+      multiplyFactory('a')(6)
+    ).toEqual(6);
+
+    document.getElementById('test6').innerText = 'Passing!'
+    document.getElementById('test6').classList.remove('failing')
+    document.getElementById('test6').classList.add('passing')
+
+    expect(
+      multiplyFactory('a')('b')
+    ).toEqual('Are you dumb? This isn\'t how math works');
+
+    document.getElementById('test7').innerText = 'Passing!'
+    document.getElementById('test7').classList.remove('failing')
+    document.getElementById('test7').classList.add('passing')
+
+  </script>
+
+</body>
+</html>
+
