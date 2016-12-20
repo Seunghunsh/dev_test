@@ -47,5 +47,5 @@ Given a starter Node project using just native node modules:
 - You can test this from the command line by using the `curl` command like:
 ```bash
 $ curl localhost:9001/pokemon/1
-// Should return something about Charmander
+// Should return something about Bulbasaur
 ```
